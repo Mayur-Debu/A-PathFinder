@@ -31,7 +31,9 @@
 ```
 Red spot denotes 'start' node.
 Green spot denotes 'end' node.
-Black node denotes 'barrier' node.
+Black node denotes 'barrier' nodes.
+Blue node denotes 'visited' nodes.
+Turquoise node denoted 'open' nodes.
 
 Mouse Control's:
 Left Click: Selecting the start node, end node and the barrier's.
