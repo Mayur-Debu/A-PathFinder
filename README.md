@@ -7,7 +7,7 @@
 ***
 
 ```
-#1 git init https://github.com/Mayur-Debu/A-PathFinder.git
+#1 git clone https://github.com/Mayur-Debu/A-PathFinder.git
 #2 pip install -r requirements.txt
 #3 python pathFinder.py
 ```
