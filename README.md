@@ -14,7 +14,7 @@
 
 ***
 ### Screenshot: 
-<img src="a_star.png" width=500px>
+<img src="a_star.png" width=501px>
 
 ***
 
