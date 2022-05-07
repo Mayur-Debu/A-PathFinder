@@ -1,7 +1,11 @@
+from turtle import width
+from winsound import PlaySound
 import pygame
-from queue import PriorityQueue
+from queue import PriorityQueue 
 import os
 import random
+import multiprocessing
+from pygame import mixer
 
 """
 This software is a A* Pathfinding visualizer, that shows the working of the A* algort.
@@ -9,8 +13,10 @@ This software is a A* Pathfinding visualizer, that shows the working of the A* a
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
-WIDTH = 700
-WIN = pygame.display.set_mode((WIDTH, WIDTH))
+mixer.init()
+mixer.music.load('./elixir-of-life-9420.mp3')
+WIDTH = 800
+WIN = pygame.display.set_mode((800, 800))
 pygame.display.set_caption('A* ALGORITHM VISUALIZER  (Dev: Mayur)')
 # gameIcon = pygame.image.load('Images\\69750394.png')
 # pygame.display.set_icon(gameIcon)
@@ -180,6 +186,9 @@ def algorithm(draw, grid, start, end):
             current.make_closed()
 
     pygame.display.set_caption('ERROR: NO PATH FOUND')
+    mixer.music.stop()
+    mixer.music.load('./mixkit-failure-arcade-alert-notification-240.wav')
+    mixer.music.play()
     return False
 
 
@@ -273,6 +282,7 @@ def main(win, width):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE and start and end:
+                    mixer.music.play()
                     pygame.display.set_caption('A* ALGORITHM VISUALIZER  (Dev: Mayur)')
                     for row in grid:
                         for spot in row:
@@ -280,8 +290,10 @@ def main(win, width):
                             if spot.color == TURQUOISE or spot.color == BLUE or spot.color == YELLOW:
                                 spot.reset_spot()
                     algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
+                    mixer.music.stop()
 
                 if event.key == pygame.K_c:
+                    mixer.music.stop()
                     pygame.display.set_caption('A* ALGORITHM VISUALIZER  (Dev: Mayur)')
                     start = None
                     end = None
